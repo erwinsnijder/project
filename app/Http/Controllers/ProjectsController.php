@@ -22,6 +22,14 @@ return view('projects.create');
 public function store()
 
 {
-return request()->all();
-}
+
+    $project = new project();
+
+    $project->title = request('title');
+    $project->description = request('description');
+
+    $project->save();
+
+    return redirect('/projects');
+    }
 }
