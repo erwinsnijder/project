@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Project;
+// use App\Project;
 
 class ProjectsController extends Controller
 {
@@ -20,7 +20,7 @@ class ProjectsController extends Controller
 
 public function store()
 {
-    $project= new project();
+    $project= new \App\Project;
 
     $project->title = request('title');
     $project->description = request('description');
