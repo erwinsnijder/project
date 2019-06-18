@@ -37,12 +37,8 @@ public function update(project $project)
 
 public function store()
 {
-    $project= new \App\Project;
-
-    $project->title = request('title');
-    $project->description = request('description');
-    $project->save();
-    return redirect('/projects');
+    project::create(request(['title', 'description']));
+        return redirect('/projects');
 }  
     
 public function destroy(project $project)
