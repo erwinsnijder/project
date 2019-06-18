@@ -26,14 +26,14 @@ public function show()
 public function edit($id) 
 {
     // return $id;
-    $project = Project::find($id);
+    $project = Project::findOrFail($id);
 
 return view ('projects.edit', compact('project'));
 }
 
 public function update($id)
 {
-    $project = project::find($id);
+    $project = project::findOrFail($id);
     
     $project->title = request('title');
     $project->description = request('description');
@@ -43,9 +43,11 @@ public function update($id)
     return redirect('/projects');
 }
 
-public function destroy()
+public function destroy($id)
 {
+    project::findOrFail($id)->delete();
 
+    return redirect('/projects');
 }
 
 public function store()
