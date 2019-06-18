@@ -35,7 +35,7 @@
 
 </form>
 
-<form method="POST" action="/projects/{{ $project->id }}"'>
+<form method="POST" action="/projects/{{ $project->id }}" style="margin-bottom: 1em;">
 @method('DELETE')
 @csrf
 
@@ -45,10 +45,16 @@
 <div clas="field">
 
 <div class="control">
-<button type="submit" class="button">Delete Project</button>
+<button type="submit" class="button is-link">Delete Project</button>
     </div>
 </div>
 
 </form>
+
+<p>
+    <a class="button is-link" href="/projects/">Back to Projects</a>
+</p>
+
+
 
 @endsection
