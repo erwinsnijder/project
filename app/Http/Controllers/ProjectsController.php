@@ -12,43 +12,26 @@ class ProjectsController extends Controller
 
         return view('projects.index', compact('projects'));
     }
-
     public function create()
     {
         return view('projects.create');
 }
 
-public function show($id)
+public function show(project $project)
 {
-    $project = Project::findOrFail($id);
-
-return view('projects.show', compact('project'));
+    return view('projects.show', compact('project'));
 }
 
-public function edit($id) 
+public function edit(project $project) 
 {
-    // return $id;
-    $project = Project::findOrFail($id);
-
-return view ('projects.edit', compact('project'));
+    return view ('projects.edit', compact('project'));
 }
 
-public function update($id)
+public function update(project $project)
 {
-    $project = project::findOrFail($id);
-    
     $project->title = request('title');
     $project->description = request('description');
-
     $project->save();
-
-    return redirect('/projects');
-}
-
-public function destroy($id)
-{
-    project::findOrFail($id)->delete();
-
     return redirect('/projects');
 }
 
@@ -58,10 +41,13 @@ public function store()
 
     $project->title = request('title');
     $project->description = request('description');
-
     $project->save();
-
     return redirect('/projects');
-    // return request()->all();
+}  
+    
+public function destroy(project $project)
+{
+    $project->delete();
+    return redirect('/projects');
 }
 }
