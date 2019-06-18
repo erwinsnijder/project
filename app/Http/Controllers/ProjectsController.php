@@ -23,9 +23,11 @@ public function show()
 
 }
 
-public function edit()
+public function edit($id) 
 {
-
+    return $id;
+    // $project = Project::find():
+return view ('projects.edit');
 }
 
 public function update()
