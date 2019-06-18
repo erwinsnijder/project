@@ -3,7 +3,9 @@
 @section('content')
     <h1 class="title">Edit Project</h1>
 
-    <form>
+    <form method="POST" action="/projects/{{ $project->id }}">
+        {{ method_field('PATCH') }}
+        {{ csrf_field() }}
     <div class="field">
   <label class="label" for="title">Title</label>
 
