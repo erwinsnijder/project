@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// use App\Project;
+use App\Project;
 
 class ProjectsController extends Controller
 {
@@ -25,9 +25,10 @@ public function show()
 
 public function edit($id) 
 {
-    return $id;
-    // $project = Project::find():
-return view ('projects.edit');
+    // return $id;
+    $project = Project::find($id);
+
+return view ('projects.edit', compact('project'));
 }
 
 public function update()
