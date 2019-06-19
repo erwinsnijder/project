@@ -8,14 +8,23 @@
     <h1>Create a new Project</h1>
     <form method="POST" action="/projects">
     {{ csrf_field() }}
-    
-    <div>
-    <input type="text" name="title" placeholder="Project title" required>
+    <br>
+    <div class="field">
+        <label class="label" for="title">Project Title</label>
+
+    <div class="control">
+            <input type="text" class="input" name="title" value="{{ old('title') }}">
+        </div>
     </div>
 
-    <div>
-        <textarea name="description" placeholder="Project description"></textarea>
+    <div class="field">
+    <label class="label" for="Description">Project Description</label>
+
+    <div class="control">
+            <textarea name="description" class="textarea"></textarea>
+        </div>
     </div>
+    
 
     <div>
         <button type="submit" class="button is-link" >Create Project</button>
